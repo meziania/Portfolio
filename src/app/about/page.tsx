@@ -71,7 +71,8 @@ export default function AboutPage() {
 
       <Reveal className="factbox">
         <div className="fact-row"><span>Disponible pour</span><span>Missions freelance & CDI</span></div>
-        <div className="fact-row"><span>Domaines</span><span>Data Engineering · BI · ERP/CRM · Full-stack sécurisé</span></div>
+        <div className="fact-row"><span>Domaines</span><span>Full-stack · Systèmes d&apos;information · Data & BI</span></div>
+        <div className="fact-row"><span>Intérêt</span><span>Systèmes ERP/CRM (Dynamics 365)</span></div>
         <div className="fact-row"><span>Localisation</span><span>{profile.location}</span></div>
         <div className="fact-row"><span>Langues</span><span>{profile.languages}</span></div>
       </Reveal>

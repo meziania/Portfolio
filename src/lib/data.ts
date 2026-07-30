@@ -11,9 +11,9 @@ export const nav = [
 export const skillsModules = [
   {
     idx: "M1",
-    title: "Data, BI, ERP & CRM",
-    sub: "MODELING → ETL → REPORTING → DECISION",
-    tags: ["Power BI / DAX", "Power Pivot", "Dynamics 365 BC (ERP/CRM)", "AL", "n8n", "ETL/ELT", "SQL Server", "T-SQL", "Python (Pandas)", "Data Profiling", "Data Warehousing", "REST APIs"],
+    title: "Frontend Web",
+    sub: "UI → STATE → PWA",
+    tags: ["React 18/19", "Next.js 14", "TypeScript", "JavaScript (ES6+)", "Vite", "Tailwind CSS", "React Router", "TanStack Query", "PWA", "HTML5 / CSS3"],
   },
   {
     idx: "M2",
@@ -23,9 +23,9 @@ export const skillsModules = [
   },
   {
     idx: "M3",
-    title: "Frontend Web",
-    sub: "UI → STATE → PWA",
-    tags: ["React 18/19", "Next.js 14", "TypeScript", "JavaScript (ES6+)", "Vite", "Tailwind CSS", "React Router", "TanStack Query", "PWA", "HTML5 / CSS3"],
+    title: "Data, BI & ERP/CRM",
+    sub: "MODELING → ETL → REPORTING",
+    tags: ["Power BI / DAX", "Power Pivot", "Dynamics 365 BC (ERP/CRM)", "AL", "n8n", "ETL/ELT", "SQL Server", "T-SQL", "Python (Pandas)", "Data Profiling", "REST APIs"],
   },
   {
     idx: "M4",
@@ -209,10 +209,10 @@ export const certifications = [
 
 export const profile = {
   name: "Abderrahmane Meziani",
-  role: "Software Engineer — Data, BI & ERP/CRM",
+  role: "Ingénieur Logiciel — Développement Digital des Systèmes d'Information",
   location: "Casablanca-Settat, Maroc (remote OK)",
   languages: "AR (natif) · FR (courant) · EN (pro)",
-  bio: "Développeur full-stack passionné par la donnée : ingénierie des données, Business Intelligence et systèmes ERP/CRM (Microsoft Dynamics 365 Business Central), avec une expertise complémentaire en développement web sécurisé de bout en bout.",
+  bio: "Développeur full-stack spécialisé dans le développement digital des systèmes d'information de bout en bout, avec des compétences complémentaires en ingénierie des données/BI et un intérêt marqué pour les systèmes ERP/CRM (Microsoft Dynamics 365 Business Central).",
   email: "a.meziani.dev@gmail.com",
   whatsapp: "+212699254247",
   whatsappHref: "https://wa.me/212699254247",
