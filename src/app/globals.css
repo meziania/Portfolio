@@ -76,6 +76,16 @@ img{max-width:100%;display:block;}
 .sidebar-footer .socials a:hover{color:var(--teal);border-color:var(--teal);}
 .sidebar-footer .coords{font-family:var(--font-mono), monospace;font-size:0.68rem;color:var(--muted-2);}
 
+/* LANGUAGE TOGGLE */
+.lang-toggle{display:inline-flex;border:1px solid var(--border);border-radius:6px;overflow:hidden;flex:0 0 auto;}
+.lang-toggle button{
+  background:transparent;border:none;color:var(--muted);cursor:pointer;
+  font-size:0.7rem;font-weight:600;letter-spacing:0.03em;padding:6px 10px;transition:color .2s,background .2s;
+}
+.lang-toggle button:not(:first-child){border-left:1px solid var(--border);}
+.lang-toggle button:hover{color:var(--text);}
+.lang-toggle button.active{color:var(--ink);background:var(--teal);}
+
 /* MOBILE TOPBAR */
 .topbar{display:none;}
 @media(max-width:960px){

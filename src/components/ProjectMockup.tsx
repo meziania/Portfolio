@@ -1,4 +1,4 @@
-import { Project } from "@/lib/data";
+import { Project } from "@/lib/i18n/types";
 
 export default function ProjectMockup({ type }: { type: Project["mockup"] }) {
   switch (type) {

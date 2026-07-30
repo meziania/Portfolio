@@ -4,12 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { nav, profile } from "@/lib/data";
+import { useContent } from "@/lib/i18n/LanguageProvider";
 import { GitHubIcon, LinkedInIcon, DownloadIcon } from "./Icons";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Sidebar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { nav, profile, ui } = useContent();
 
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
@@ -22,14 +24,17 @@ export default function Sidebar() {
           </span>
           ABDERRAHMANE
         </div>
-        <button
-          className={`hamburger${open ? " open" : ""}`}
-          aria-label="Ouvrir le menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span></span><span></span><span></span>
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <LanguageToggle />
+          <button
+            className={`hamburger${open ? " open" : ""}`}
+            aria-label={ui.sidebar.openMenu}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
       <div className={`scrim${open ? " show" : ""}`} onClick={() => setOpen(false)} />
 
@@ -40,7 +45,7 @@ export default function Sidebar() {
           </div>
           <div className="info">
             <strong>Abderrahmane</strong>
-            <span>Software Engineer</span>
+            <span>{ui.sidebar.shortRole}</span>
           </div>
         </div>
         <nav className="sidebar-nav">
@@ -56,8 +61,9 @@ export default function Sidebar() {
           ))}
         </nav>
         <div className="sidebar-footer">
+          <LanguageToggle />
           <a href={profile.cv} className="btn btn-ghost" download style={{ justifyContent: "center", fontSize: "0.75rem", padding: "11px 16px" }}>
-            <DownloadIcon size={15} /> Télécharger le CV
+            <DownloadIcon size={15} /> {ui.sidebar.downloadCv}
           </a>
           <div className="socials">
             <a href={profile.github} target="_blank" rel="noopener" aria-label="GitHub"><GitHubIcon /></a>

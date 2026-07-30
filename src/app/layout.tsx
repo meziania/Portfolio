@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import ScrollProgress from "@/components/ScrollProgress";
+import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 
 const grotesk = Space_Grotesk({
   variable: "--font-grotesk",
@@ -90,11 +91,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ScrollProgress />
-        <div className="shell">
-          <Sidebar />
-          <main className="content">{children}</main>
-        </div>
+        <LanguageProvider>
+          <ScrollProgress />
+          <div className="shell">
+            <Sidebar />
+            <main className="content">{children}</main>
+          </div>
+        </LanguageProvider>
       </body>
     </html>
   );
