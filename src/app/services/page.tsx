@@ -5,20 +5,24 @@ export const metadata: Metadata = { title: "Services" };
 
 const benefits = [
   {
+    title: "Un modèle de données ERP/CRM clair et documenté",
+    desc: "Structuration et documentation de vos données ERP/CRM (Dynamics 365 Business Central et équivalents), même sans documentation existante — la base de tout reporting fiable.",
+  },
+  {
+    title: "Des pipelines et automatisations qui tournent sans vous",
+    desc: "ETL/ELT (n8n, SQL Server, APIs, ERP/CRM), workflows automatisés et intégrations IA qui alimentent vos rapports sans intervention manuelle.",
+  },
+  {
+    title: "Des dashboards BI qui répondent à vos vraies questions",
+    desc: "Power BI/DAX construits sur un modèle de données propre — pas des rapports génériques copiés-collés.",
+  },
+  {
     title: "Une application livrée de bout en bout",
     desc: "Base de données, backend, interface : un seul interlocuteur du besoin métier jusqu'au produit en production.",
   },
   {
     title: "Des systèmes pensés sécurité dès la conception",
     desc: "Authentification robuste (JWT, hashing), protections applicatives (Helmet, validation Zod), row-level security et anti-fraude — pas ajoutées après coup.",
-  },
-  {
-    title: "Des pipelines et automatisations qui tournent sans vous",
-    desc: "ETL (n8n, SQL Server, APIs, ERP), workflows automatisés et intégrations IA qui alimentent vos rapports sans intervention manuelle.",
-  },
-  {
-    title: "Des dashboards qui répondent à vos vraies questions",
-    desc: "Power BI/DAX construits sur un modèle de données propre et documenté — pas des rapports génériques copiés-collés.",
   },
   {
     title: "Une gestion de projet et une communication sans friction",
@@ -33,9 +37,9 @@ export default function ServicesPage() {
         <span className="page-tag mono">02 / SERVICES</span>
         <h1>Du besoin métier au produit livré.</h1>
         <p>
-          Vos données sont éparpillées entre un ERP, des fichiers Excel et plusieurs outils, et personne ne peut
-          vous dire avec certitude ce qui se passe réellement dans votre business ? Je conçois les pipelines, les
-          modèles de données et les applications qui règlent ce problème — une fois, proprement, documenté.
+          Vos données sont éparpillées entre un ERP, un CRM, des fichiers Excel et plusieurs outils, et personne ne
+          peut vous dire avec certitude ce qui se passe réellement dans votre business ? Je conçois les pipelines, les
+          modèles de données et les dashboards BI qui règlent ce problème — une fois, proprement, documenté.
         </p>
       </Reveal>
 

@@ -25,24 +25,24 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://github.com/meziania/portfolio"),
   title: {
-    default: "Abderrahmane Meziani — Software Engineer & Full-Stack Developer",
+    default: "Abderrahmane Meziani — Data Engineer, BI & ERP/CRM · Software Engineer",
     template: "%s · Abderrahmane Meziani",
   },
   description:
-    "Développeur logiciel full-stack spécialisé en applications web sécurisées (Next.js, Django, FastAPI), avec une expertise complémentaire en ingénierie des données et BI.",
+    "Spécialiste ingénierie des données, Business Intelligence et ERP/CRM (Microsoft Dynamics 365 Business Central, Power BI, n8n), avec une expertise complémentaire en développement full-stack sécurisé (Next.js, Django, FastAPI).",
   authors: [{ name: "Abderrahmane Meziani" }],
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    title: "Abderrahmane Meziani — Software Engineer & Full-Stack Developer",
+    title: "Abderrahmane Meziani — Data Engineer, BI & ERP/CRM · Software Engineer",
     description:
-      "Applications web full-stack sécurisées, de la base de données à l'interface — avec une expertise complémentaire en data engineering & BI.",
+      "Ingénierie des données, dashboards BI et systèmes ERP/CRM — avec une expertise complémentaire en développement full-stack sécurisé de bout en bout.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abderrahmane Meziani — Software Engineer & Full-Stack Developer",
+    title: "Abderrahmane Meziani — Data Engineer, BI & ERP/CRM · Software Engineer",
     description:
-      "Applications web full-stack sécurisées — avec une expertise complémentaire en data engineering & BI.",
+      "Ingénierie des données, dashboards BI et systèmes ERP/CRM — avec une expertise complémentaire en développement full-stack sécurisé.",
   },
   icons: {
     icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1626'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23E8A33D'/%3E%3C/svg%3E",
@@ -58,7 +58,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Abderrahmane Meziani",
-  jobTitle: "Software Engineer — Développeur Full-Stack, Systèmes Sécurisés & Data Engineering",
+  jobTitle: "Software Engineer — Data Engineering, BI & ERP/CRM (Dynamics 365)",
   email: "mailto:a.meziani.dev@gmail.com",
   alumniOf: [
     { "@type": "EducationalOrganization", name: "EMSI — École Marocaine des Sciences de l'Ingénieur" },

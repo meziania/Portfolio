@@ -11,9 +11,9 @@ export const nav = [
 export const skillsModules = [
   {
     idx: "M1",
-    title: "Frontend Web",
-    sub: "UI → STATE → PWA",
-    tags: ["React 18/19", "Next.js 14", "TypeScript", "JavaScript (ES6+)", "Vite", "Tailwind CSS", "React Router", "TanStack Query", "PWA", "HTML5 / CSS3"],
+    title: "Data, BI, ERP & CRM",
+    sub: "MODELING → ETL → REPORTING → DECISION",
+    tags: ["Power BI / DAX", "Power Pivot", "Dynamics 365 BC (ERP/CRM)", "AL", "n8n", "ETL/ELT", "SQL Server", "T-SQL", "Python (Pandas)", "Data Profiling", "Data Warehousing", "REST APIs"],
   },
   {
     idx: "M2",
@@ -23,9 +23,9 @@ export const skillsModules = [
   },
   {
     idx: "M3",
-    title: "Data Engineering & BI",
-    sub: "MODELING → ETL → REPORTING",
-    tags: ["Python (Pandas)", "SQL Server", "n8n", "ETL/ELT", "Power BI / DAX", "Power Pivot", "Dynamics 365 BC / AL", "REST APIs", "Automatisation IA (n8n)"],
+    title: "Frontend Web",
+    sub: "UI → STATE → PWA",
+    tags: ["React 18/19", "Next.js 14", "TypeScript", "JavaScript (ES6+)", "Vite", "Tailwind CSS", "React Router", "TanStack Query", "PWA", "HTML5 / CSS3"],
   },
   {
     idx: "M4",
@@ -81,10 +81,10 @@ export const projects: Project[] = [
     previewClass: "preview-02",
     mockup: "erd",
     status: { label: "MISSION CLIENT — INTERNE", kind: "neutral" },
-    ptag: "DATA · ERP REVERSE-ENGINEERING",
-    title: "Reconstruction d'un entrepôt de données ERP",
-    description: "Chez Food Group Trading, structuration et documentation de 77 tables ERP (Ventes, Achats, Stock, CRM, Logistique, RH, Finance) sans documentation existante. Pipelines ETL n8n consolidant SQL Server, Excel, scraping HTML et API REST, transformations T-SQL et dashboards Power BI/DAX sur Microsoft Dynamics 365 Business Central.",
-    tags: ["n8n", "SQL Server", "Power BI / DAX", "Dynamics 365 BC (AL)", "T-SQL"],
+    ptag: "DATA · BI · ERP/CRM REVERSE-ENGINEERING",
+    title: "Reconstruction d'un entrepôt de données ERP/CRM",
+    description: "Chez Food Group Trading, structuration et documentation de 77 tables ERP/CRM (Ventes, Achats, Stock, CRM, Logistique, RH, Finance) sans documentation existante. Pipelines ETL n8n consolidant SQL Server, Excel, scraping HTML et API REST, transformations T-SQL et dashboards Power BI/DAX sur Microsoft Dynamics 365 Business Central.",
+    tags: ["n8n", "SQL Server", "Power BI / DAX", "Dynamics 365 BC (ERP/CRM)", "T-SQL", "CRM"],
   },
   {
     id: "2r",
@@ -149,9 +149,9 @@ export const experience = [
   {
     logo: "FGT",
     date: "JUL 2026 — PRÉSENT",
-    title: "Stagiaire Data Engineering & BI",
+    title: "Stagiaire Data Engineering, BI & ERP/CRM",
     org: "Food Group Trading · Casablanca-Settat · Sur site",
-    desc: "Conception et automatisation de pipelines ETL avec n8n (ERP, SQL Server, Excel, API, HTML). Construction et maintenance d'un entrepôt de données pour le reporting analytique. Dashboards et KPIs Power BI/DAX. Travail sur le modèle de données de Microsoft Dynamics 365 Business Central.",
+    desc: "Conception et automatisation de pipelines ETL avec n8n (ERP/CRM, SQL Server, Excel, API, HTML). Construction et maintenance d'un entrepôt de données pour le reporting analytique. Dashboards et KPIs Power BI/DAX. Modélisation des données ERP/CRM de Microsoft Dynamics 365 Business Central.",
   },
   {
     logo: "2R",
@@ -209,10 +209,10 @@ export const certifications = [
 
 export const profile = {
   name: "Abderrahmane Meziani",
-  role: "Software Engineer — Développeur Full-Stack",
+  role: "Software Engineer — Data, BI & ERP/CRM",
   location: "Casablanca-Settat, Maroc (remote OK)",
   languages: "AR (natif) · FR (courant) · EN (pro)",
-  bio: "Développeur full-stack spécialisé dans la conception d'applications web sécurisées de bout en bout, avec une expertise complémentaire en ingénierie des données et BI.",
+  bio: "Développeur full-stack passionné par la donnée : ingénierie des données, Business Intelligence et systèmes ERP/CRM (Microsoft Dynamics 365 Business Central), avec une expertise complémentaire en développement web sécurisé de bout en bout.",
   email: "a.meziani.dev@gmail.com",
   whatsapp: "+212699254247",
   whatsappHref: "https://wa.me/212699254247",
