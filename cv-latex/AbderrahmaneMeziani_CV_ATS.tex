@@ -1,0 +1,173 @@
+% ============================================================
+%  Abderrahmane MEZIANI — CV (ATS-Optimized Version)
+%  Clean single-column layout, no photo/icons/columns/tables.
+%  Use THIS version for online applications / ATS portals.
+%  Compile with: pdflatex (or Overleaf, "pdfLaTeX" compiler)
+% ============================================================
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+
+% ---------- Colors (minimal, print/ATS safe) ----------
+\definecolor{heading}{RGB}{30, 30, 30}
+\definecolor{subtext}{RGB}{80, 80, 80}
+
+% ---------- Page setup ----------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.08}
+
+% ---------- Section formatting ----------
+\titleformat{\section}
+  {\bfseries\large\color{heading}\MakeUppercase}
+  {}{0em}{}
+  [\vspace{1pt}{\color{subtext}\titlerule[0.8pt]}]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% ---------- Entry heading: Title .... Dates ----------
+\newcommand{\entry}[2]{%
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1} & {\small #2} \\
+  \end{tabularx}\par\vspace{1pt}
+}
+
+\newcommand{\subentry}[1]{{\small\color{subtext}\itshape #1}\par\vspace{2pt}}
+
+\newcommand{\items}[1]{%
+  \begin{itemize}[leftmargin=14pt, itemsep=1.5pt, topsep=2pt, parsep=0pt]
+    #1
+  \end{itemize}
+}
+
+\newcommand{\skillLine}[2]{\textbf{#1:} #2\par\vspace{3pt}}
+
+% ============================================================
+\begin{document}
+
+% ---------- Header ----------
+\begin{center}
+  {\LARGE \bfseries ABDERRAHMANE MEZIANI}\\[5pt]
+  Software Engineer | Full-Stack Developer\\[7pt]
+  Casablanca, Morocco \textbar\ +212 6 99 25 42 47 \textbar\ \href{mailto:a.meziani.dev@gmail.com}{a.meziani.dev@gmail.com}\\
+  \href{https://www.linkedin.com/in/abderrahmane-meziani-929b8a26b/}{linkedin.com/in/abderrahmane-meziani} \textbar\
+  \href{https://github.com/meziania}{github.com/meziania} \textbar\
+  \href{https://portfolio-nine-lime-dre0zfu2cv.vercel.app/}{portfolio-nine-lime-dre0zfu2cv.vercel.app}
+\end{center}
+
+% ---------- Summary ----------
+\section{Professional Summary}
+Software Engineering student with hands-on experience in full-stack development, ERP/CRM systems, data engineering, and Business Intelligence. Built production SaaS applications and delivered software for freelance clients, combining clean architecture, application security, and data pipelines.
+
+% ---------- Experience ----------
+\section{Professional Experience}
+
+\entry{Data Engineering, BI \& ERP/CRM Intern}{Jul. 2026 -- Present}
+\subentry{Food Group Trading, Casablanca-Settat, Morocco}
+\items{
+  \item Reverse-engineered and documented 77 ERP/CRM tables, enabling automated ETL pipelines (n8n) and Power BI dashboards with DAX reporting.
+  \item Built and maintained a data warehouse powering business-intelligence reporting; modeled ERP/CRM data on Microsoft Dynamics 365 Business Central (AL).
+}
+
+\entry{Software Engineer (Freelance)}{Oct. 2025 -- Nov. 2025}
+\subentry{2R Parts Auto Accessoires, Casablanca-Settat, Morocco (Remote)}
+\items{
+  \item Built a desktop management application from scratch for an auto-parts distributor: point of sale (POS), stock, and customer credit management.
+  \item Automated PDF invoicing, financial reporting, and scheduled backups.
+}
+
+\entry{Software Engineering Intern}{Jul. 2025 -- Sep. 2025}
+\subentry{JobGate, Ben Guerir, Morocco (Hybrid)}
+\items{
+  \item Developed backend features (Django/DRF) for a recruitment platform with an integrated video-interview studio (WebRTC).
+  \item Implemented multi-provider authentication, job offer/application management, and asynchronous task processing (Celery/Redis).
+}
+
+\entry{IT Trainer}{Sep. 2023 -- Jun. 2024}
+\subentry{Private School, Casablanca-Settat, Morocco}
+\items{
+  \item Designed and delivered hands-on IT training programs; supervised small-group workshops and evaluated learners.
+}
+
+\entry{Software Engineering Intern}{Apr. 2022 -- Jul. 2022}
+\subentry{DL Software Maroc, Agadir / Rabat-Salé-Kénitra, Morocco (Hybrid)}
+\items{
+  \item Fixed bugs and improved interfaces on existing applications; developed features in Java and PHP.
+  \item Designed, optimized, and maintained relational databases (MySQL).
+}
+
+% ---------- Education ----------
+\section{Education}
+
+\entry{Engineering Degree, Software Engineering (IIR)}{2023 -- 2027 (expected)}
+\subentry{EMSI, Casablanca, Morocco}
+\items{
+  \item Information Systems \& Networks Engineering. Coursework: software engineering, databases \& data warehousing, business intelligence, network \& application security, Java EE/Spring Boot, IoT.
+}
+
+\entry{Specialized Technician, Full-Stack Development}{2020 -- 2022}
+\subentry{OFPPT — ISTA NTIC2, Casablanca, Morocco}
+\items{
+  \item Full-stack web development training: front-end, back-end, database design, and software engineering fundamentals.
+}
+
+% ---------- Projects ----------
+\section{Key Projects}
+
+\entry{FidApp --- Production Digital Loyalty SaaS}{4 deployed applications}
+\items{
+  \item Full-stack SaaS loyalty platform serving Moroccan businesses (QR-code check-ins, no app download). Monorepo with client PWA, merchant dashboard, admin panel, and REST API.
+  \item Anti-fraud rotating QR codes with TTL expiration, phone-number authentication. \textit{React, Node.js, Express, PostgreSQL, Prisma, JWT, PWA.}
+}
+
+\entry{Moqawil / SOAITRAV --- Desktop ERP for a Construction Company}{}
+\items{
+  \item Complete management application for a construction (BTP) company (quotes, invoices, delivery notes, clients, stock, dashboard), with professional A4 PDF generation (jsPDF), digital stamp/signature, and print-ready export.
+  \item Automatic updates (electron-updater via GitHub Releases), Windows packaging (electron-builder/NSIS), monorepo architecture (npm workspaces). \textit{React, TypeScript, Electron, Node.js, Express, Prisma, SQLite.}
+}
+
+\entry{Opportunities Scanner --- Freelance Client Discovery Platform}{Personal project}
+\items{
+  \item Automated platform for freelance IT client discovery: centralizes and normalizes listings from job boards and email alerts, and computes a match score against a technical profile.
+  \item Generates tailored outreach messages, with a UI for contact tracking (email, WhatsApp) and outreach history. Event-driven architecture (REST API, asynchronous workers, RabbitMQ, PostgreSQL). \textit{Next.js, NestJS, TypeScript, PostgreSQL, Prisma, RabbitMQ.}
+}
+
+\entry{TimeTrack Pro --- HR Attendance \& Leave Management}{Final year project}
+\items{
+  \item B2B SaaS for employee check-in via GPS/Haversine geofencing and dynamic QR codes, with HR/employee analytics dashboards. \textit{Next.js, React, TypeScript, Firebase/Firestore.}
+}
+
+% ---------- Skills ----------
+\section{Skills}
+
+\skillLine{Core Stack}{React, Next.js, TypeScript, Node.js, Express, NestJS, Django/DRF, PostgreSQL, SQL Server}
+\skillLine{Data, BI \& ERP/CRM}{Power BI, DAX, n8n, ETL/ELT, Microsoft Dynamics 365 Business Central (AL), Python (Pandas), RabbitMQ}
+\skillLine{Desktop \& Automation}{Electron, Python (PyQt5), SQLAlchemy, jsPDF, ReportLab}
+\skillLine{Also}{FastAPI, Laravel/PHP, .NET 8, Java, MySQL/MariaDB, MongoDB/Firestore, Oracle DB, Tailwind CSS, JWT}
+\skillLine{Tools \& Methods}{Git, Scrum, UML, Vercel}
+
+% ---------- Certifications ----------
+\section{Certifications}
+\items{
+  \item Scrum Master --- CertiProf (2024)
+  \item Oracle Database --- LearnQuest
+  \item Python for Web Data --- University of Maryland
+  \item OOP in C++ --- EPFL
+  \item ALX Professional Foundation; Soft Skills --- ALX Africa
+}
+
+% ---------- Languages ----------
+\section{Languages}
+Arabic (Native) \textbar\ French (Fluent) \textbar\ English (Professional)
+
+\end{document}
