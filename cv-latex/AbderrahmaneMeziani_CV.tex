@@ -35,7 +35,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{0pt}
 \setstretch{1.02}
-\setlength{\columnsep}{20pt}
+\setlength{\columnsep}{24pt}
 
 % ---------- Section title ----------
 \newcommand{\sectiontitle}[1]{%
@@ -97,15 +97,12 @@
 
 \newcommand{\langitem}[3]{%
   \noindent
-  \begin{minipage}[t]{0.52\linewidth}
-    {\bfseries\footnotesize #1}\\[-1pt]
-    {\scriptsize\color{subtext}#2}
-  \end{minipage}%
-  \hfill
-  \begin{minipage}[t]{0.42\linewidth}
-    \raggedleft
+  \begin{minipage}{\linewidth}
+    {\bfseries\footnotesize #1}\hfill
     \ifnum#3=5 \langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\fi
     \ifnum#3=4 \langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{dotempty}\fi
+    \\[-1pt]
+    {\scriptsize\color{subtext}#2}
   \end{minipage}\\[5pt]
 }
 
@@ -145,7 +142,7 @@
 \vspace{1pt}
 
 % ======================== TWO COLUMNS ========================
-\columnratio{0.63}
+\columnratio{0.61}
 \begin{paracol}{2}
 
 % ---------- LEFT COLUMN ----------
@@ -234,9 +231,9 @@
 
 {\bfseries\small\color{accent} Technical}\\[3pt]
 \skillCat{Full-Stack Development}{React, Next.js, TypeScript, Node.js, NestJS, Django, PostgreSQL}
-\skillCat{Data Engineering \& BI}{SQL Server, Power BI (DAX), n8n, ETL/ELT, Python}
+\skillCat{Backend \& Frameworks}{Java, Spring Boot, C\#, ASP.NET}
+\skillCat{Data Engineering \& BI}{SQL Server, Power BI (DAX), Tableau, SSIS, n8n, ETL/ELT, Python}
 \skillCat{ERP/CRM Systems}{Microsoft Dynamics 365 Business Central (AL)}
-\skillCat{Desktop Applications}{Electron, Python (PyQt5)}
 
 \vspace{2pt}
 {\bfseries\small\color{accent} Functional}\\[3pt]
