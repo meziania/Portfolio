@@ -1,5 +1,5 @@
 % ============================================================
-%  Abderrahmane MEZIANI — CV (LaTeX)
+%  Abderrahmane MEZIANI — CV (Enhancv-inspired ATS layout)
 %  Compile with: pdflatex (or upload the whole cv-latex/ folder to
 %  Overleaf as a project, "pdfLaTeX" compiler)
 %  IMPORTANT: keep photo.png in the SAME folder as this .tex file.
@@ -7,7 +7,7 @@
 \documentclass[10pt,a4paper]{article}
 
 % ---------- Packages ----------
-\usepackage[margin=0.55in,top=0.45in,bottom=0.45in]{geometry}
+\usepackage[margin=0.45in,top=0.38in,bottom=0.38in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{helvet}
@@ -16,179 +16,246 @@
 \usepackage{enumitem}
 \usepackage{fontawesome5}
 \usepackage[hidelinks]{hyperref}
-\usepackage{tabularx}
-\usepackage{ragged2e}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{tcolorbox}
+\usepackage{paracol}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{needspace}
 
-% ---------- Colors (matching the portfolio's brand palette) ----------
-\definecolor{accent}{RGB}{15, 55, 95}    % deep navy
-\definecolor{amber}{RGB}{214, 140, 40}   % amber accent (printer-safe)
-\definecolor{subtext}{RGB}{95, 95, 95}
-\definecolor{rule}{RGB}{205, 205, 205}
+% ---------- Colors ----------
+\definecolor{accent}{RGB}{37, 99, 180}
+\definecolor{ink}{RGB}{26, 26, 26}
+\definecolor{subtext}{RGB}{110, 110, 110}
+\definecolor{rule}{RGB}{210, 210, 210}
+\definecolor{dotempty}{RGB}{210, 210, 210}
 
 % ---------- Page setup ----------
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{0pt}
-\linespread{1.07} % ~7% extra line spacing so the body text breathes
+\setstretch{1.02}
+\setlength{\columnsep}{20pt}
 
-% ---------- Heading commands ----------
+% ---------- Section title ----------
 \newcommand{\sectiontitle}[1]{%
-  {\bfseries\color{accent}\Large #1}\\[1pt]
-  {\color{amber}\rule{18pt}{2pt}}\;{\color{rule}\rule[0.7pt]{\dimexpr\linewidth-20pt\relax}{0.6pt}}\\[6pt]
+  \vspace{5pt}%
+  {\bfseries\color{ink}\normalsize\MakeUppercase{#1}}\\[-1pt]
+  {\color{ink}\rule{\linewidth}{1pt}}\\[4pt]
 }
 
-% Job / education heading: Title -- Org  ......  Dates -- Location/desc
-\newcommand{\heading}[4]{%
-  \vspace{9pt}%
-  \begin{tabularx}{\linewidth}{@{}X r@{}}
-    \textbf{#1} \, {\small\color{subtext}#2} & {\small\color{subtext}#3} \\
-  \end{tabularx}
-  {\small\itshape\color{subtext}#4}\par\vspace{0.5pt}
+% ---------- Job / project entry ----------
+\newcommand{\job}[4]{%
+  \vspace{4pt}%
+  {\bfseries\color{ink}\small #1}\\[0.5pt]
+  {\bfseries\color{accent}\small #2}\\[1.5pt]
+  {\footnotesize\color{subtext}%
+    \faCalendarAlt\ #3
+    \ifx&#4&\else\quad\faMapMarkerAlt\ #4\fi
+  }\\[2pt]
+}
+
+\newcommand{\project}[2]{%
+  \vspace{4pt}%
+  {\bfseries\color{ink}\small #1}\\[0.5pt]
+  {\footnotesize\color{subtext}#2}\\[2pt]
 }
 
 \newcommand{\resumeItems}[1]{%
-  \begin{itemize}[leftmargin=13pt, itemsep=1pt, topsep=0.5pt, parsep=0pt, label={\small\textcolor{amber}{\textbullet}}]
+  \begin{itemize}[leftmargin=10pt, itemsep=0.5pt, topsep=0.5pt, parsep=0pt,
+                   label={\scriptsize\textcolor{accent}{\textbullet}}]
     #1
   \end{itemize}
 }
 
-\newcommand{\skillLine}[2]{\textbf{\small #1:} \small #2\par\vspace{3.5pt}}
+\newcommand{\tech}[1]{{\footnotesize\textit{#1}}}
+
+% ---------- Skills ----------
+\newcommand{\skillCat}[2]{%
+  {\bfseries\footnotesize #1:}\ {\footnotesize #2}\\[1pt]
+  {\color{rule}\rule{\linewidth}{0.35pt}}\\[3pt]
+}
+
+\newcommand{\funcSkill}[2]{%
+  {\bfseries\footnotesize #1}\\[0.5pt]
+  {\footnotesize\color{subtext}#2}\\[3pt]
+}
+
+% ---------- Education ----------
+\newcommand{\edu}[4]{%
+  \vspace{3pt}%
+  {\bfseries\color{ink}\small #1}\\[0.5pt]
+  {\bfseries\color{accent}\small #2}\\[1.5pt]
+  {\footnotesize\color{subtext}\faCalendarAlt\ #3}\\[2pt]
+  #4
+}
+
+% ---------- Language dots ----------
+\newcommand{\langdot}[1]{%
+  \tikz[baseline=-0.5ex]{\fill[#1] (0,0) circle (2pt);}%
+}
+
+\newcommand{\langitem}[3]{%
+  \noindent
+  \begin{minipage}[t]{0.52\linewidth}
+    {\bfseries\footnotesize #1}\\[-1pt]
+    {\scriptsize\color{subtext}#2}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.42\linewidth}
+    \raggedleft
+    \ifnum#3=5 \langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\fi
+    \ifnum#3=4 \langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{accent}\hspace{1.2pt}\langdot{dotempty}\fi
+  \end{minipage}\\[5pt]
+}
+
+\newcommand{\cert}[2]{%
+  {\bfseries\footnotesize #1}\\[-0.5pt]
+  {\scriptsize\color{subtext}#2}\\[3pt]
+}
 
 % ============================================================
 \begin{document}
 
-% ---------- Header band ----------
-\begin{tcolorbox}[colback=accent, colframe=accent, boxrule=0pt, arc=3pt,
-  left=16pt, right=16pt, top=13pt, bottom=13pt, boxsep=0pt]
-\begin{minipage}[c]{2.1cm}
-  \begin{tikzpicture}
-    \clip (0,0) circle (1.02cm);
-    \node[inner sep=0] at (0,0) {\includegraphics[width=2.15cm]{photo.png}};
-  \end{tikzpicture}
-\end{minipage}%
-\hspace{16pt}%
-\begin{minipage}[c]{0.74\textwidth}
-  \color{white}
-  {\Huge\bfseries Abderrahmane Meziani}\\[4pt]
-  {\large\color{amber} Software Engineer \textbar\ Full-Stack Developer}\\[9pt]
-  {\small
-    \faMapMarkerAlt\ Casablanca, Morocco \qquad
-    \faPhone\ +212\,6\,99\,25\,42\,47\\[3pt]
-    \faEnvelope\ \href{mailto:a.meziani.dev@gmail.com}{\textcolor{white}{a.meziani.dev@gmail.com}}\\[3pt]
-    \faLinkedinIn\ \href{https://www.linkedin.com/in/abderrahmane-meziani-929b8a26b/}{\textcolor{white}{linkedin.com/in/abderrahmane-meziani}}\\[3pt]
-    \faGithub\ \href{https://github.com/meziania}{\textcolor{white}{github.com/meziani}} \qquad
-    \faGlobe\ \href{https://portfolio-nine-lime-dre0zfu2cv.vercel.app/}{\textcolor{white}{My Portfolio}}
+% ======================== HEADER ========================
+\noindent
+\begin{minipage}[c]{0.78\textwidth}
+  {\fontsize{24}{28}\selectfont\bfseries\color{ink} ABDERRAHMANE MEZIANI}\\[2pt]
+  {\large\bfseries\color{accent} Software Engineer \textbar\ Full-Stack \& Data Engineering}\\[6pt]
+  {\footnotesize\color{subtext}
+    \textcolor{accent}{\faPhone}\ +212\,6\,99\,25\,42\,47 \quad
+    \textcolor{accent}{\faEnvelope}\ \href{mailto:a.meziani.dev@gmail.com}{\textcolor{subtext}{a.meziani.dev@gmail.com}}\\[2pt]
+    \textcolor{accent}{\faGlobe}\ \href{https://portfolio-nine-lime-dre0zfu2cv.vercel.app/}{\textcolor{subtext}{portfolio-nine-lime-dre0zfu2cv.vercel.app}} \quad
+    \textcolor{accent}{\faGithub}\ \href{https://github.com/meziania}{\textcolor{subtext}{github.com/meziania}}\\[2pt]
+    \textcolor{accent}{\faLinkedinIn}\ \href{https://www.linkedin.com/in/abderrahmane-meziani-929b8a26b/}{\textcolor{subtext}{linkedin.com/in/abderrahmane-meziani}} \quad
+    \textcolor{accent}{\faMapMarkerAlt}\ Casablanca, Morocco
   }
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{2.2cm}
+  \raggedleft
+  \begin{tikzpicture}
+    \clip (0,0) circle (1.05cm);
+    \node[inner sep=0] at (0,0) {\includegraphics[width=2.2cm]{photo.png}};
+  \end{tikzpicture}
 \end{minipage}
-\end{tcolorbox}
 
-\vspace{13pt}
+\vspace{4pt}
+{\color{rule}\rule{\textwidth}{0.5pt}}
+\vspace{1pt}
 
-% ---------- Experience ----------
-\sectiontitle{Professional Experience}
+% ======================== TWO COLUMNS ========================
+\columnratio{0.63}
+\begin{paracol}{2}
 
-\heading{Data Engineering, BI \& ERP/CRM Intern}{--- Food Group Trading}{Jul. 2026 -- Present}{Casablanca-Settat, Morocco \textbar\ On-site}
+% ---------- LEFT COLUMN ----------
+\sectiontitle{Experience}
+
+\job{Data Engineering, BI \& ERP/CRM Intern}{Food Group Trading}{Jul. 2026 -- Present}{Casablanca-Settat, Morocco \textbar\ On-site}
 \resumeItems{
-  \item Reverse-engineered and documented 77 ERP/CRM tables, enabling automated ETL pipelines (n8n) and Power BI dashboards with DAX reporting.
-  \item Built and maintained a data warehouse powering business-intelligence reporting; modeled ERP/CRM data on Dynamics 365 Business Central (AL).
+  \item Reverse-engineered and documented 77 ERP/CRM tables, enabling automated ETL pipelines (n8n) and Power BI dashboards with DAX-based reporting.
+  \item Built and maintained a data warehouse for business-intelligence reporting; modeled ERP/CRM data in Dynamics 365 Business Central using AL.
 }
 
-\heading{Software Engineer (Freelance)}{--- 2R Parts Auto Accessoires}{Oct. 2025 -- Nov. 2025}{Casablanca-Settat, Morocco \textbar\ Remote}
+\job{Software Engineer (Freelance)}{2R Parts Auto Accessoires}{Oct. 2025 -- Nov. 2025}{Casablanca-Settat, Morocco \textbar\ Remote}
 \resumeItems{
-  \item Built a desktop management application from scratch for an auto-parts distributor: POS, stock, and customer credit management.
+  \item Built a desktop management application from scratch: POS, stock, and customer credit management.
   \item Automated PDF invoicing, financial reporting, and scheduled backups.
 }
 
-\heading{Software Engineering Intern}{--- JobGate}{Jul. 2025 -- Sep. 2025}{Ben Guerir, Morocco \textbar\ Hybrid}
+\job{Software Engineering Intern}{JobGate}{Jul. 2025 -- Sep. 2025}{Ben Guerir, Morocco \textbar\ Hybrid}
 \resumeItems{
   \item Developed backend features (Django/DRF) for a recruitment platform with an integrated video-interview studio (WebRTC).
-  \item Implemented multi-provider authentication, job offer/application management, and asynchronous task processing (Celery/Redis).
+  \item Implemented multi-provider authentication, job/application management, and async task processing (Celery/Redis).
 }
 
-\heading{IT Trainer}{--- Private School}{Sep. 2023 -- Jun. 2024}{Casablanca-Settat, Morocco \textbar\ On-site}
+\job{IT Trainer}{Private School}{Sep. 2023 -- Jun. 2024}{Casablanca-Settat, Morocco \textbar\ On-site}
 \resumeItems{
-  \item Designed and delivered hands-on IT training programs; supervised small-group workshops and evaluated learners.
+  \item Designed and delivered hands-on IT training programs; supervised workshops and evaluated learners.
 }
 
-\heading{Software Engineering Intern}{--- DL Software Maroc}{Apr. 2022 -- Jul. 2022}{Agadir / Rabat-Salé-Kénitra \textbar\ Hybrid}
+\job{Software Engineering Intern}{DL Software Maroc}{Apr. 2022 -- Jul. 2022}{Agadir / Rabat-Salé-Kénitra \textbar\ Hybrid}
 \resumeItems{
-  \item Fixed bugs and improved interfaces on existing applications; developed features in Java and PHP.
+  \item Fixed bugs and improved interfaces; developed features in Java and PHP.
   \item Designed, optimized, and maintained relational databases (MySQL).
 }
 
-% ---------- Education ----------
+\sectiontitle{Projects}
+
+\needspace{10\baselineskip}
+\project{FidApp --- Production Digital Loyalty SaaS}{4 deployed applications}
+\resumeItems{
+  \item Full-stack SaaS loyalty platform (QR check-ins, no app download). Monorepo: client PWA, merchant dashboard, admin panel, REST API.
+  \item Anti-fraud rotating QR codes, phone-number authentication. \tech{React, Node.js, Express, PostgreSQL, Prisma, JWT, PWA.}
+}
+
+\needspace{8\baselineskip}
+\project{Moqawil / SOAITRAV --- Desktop ERP for Construction}{Desktop ERP}
+\resumeItems{
+  \item Management app for a BTP company (quotes, invoices, delivery notes, clients, stock, dashboard) with A4 PDF generation and digital stamp/signature.
+  \item Auto-updates via GitHub Releases, Windows packaging (electron-builder/NSIS), monorepo (npm workspaces). \tech{React, TypeScript, Electron, Node.js/Express, Prisma, SQLite.}
+}
+
+\project{Opportunities Scanner --- Freelance Client Discovery}{Personal project}
+\resumeItems{
+  \item Automates IT client discovery: centralizes job listings, computes match scores, generates tailored outreach messages with contact tracking.
+  \item Event-driven architecture (REST API, async workers, RabbitMQ, PostgreSQL). \tech{Next.js, NestJS, TypeScript, PostgreSQL, Prisma, RabbitMQ.}
+}
+
+\project{TimeTrack Pro --- HR Attendance \& Leave Management}{Graduation project (PFE)}
+\resumeItems{
+  \item B2B SaaS for employee check-in via GPS geofencing and dynamic QR codes, with HR analytics dashboards. \tech{Next.js, React, TypeScript, Firebase/Firestore.}
+}
+
+\project{Management Application --- Auto Parts Distributor}{Delivered \& in production}
+\resumeItems{
+  \item Desktop app: POS, stock, supplier and customer credit management, PDF invoicing. \tech{Python, PyQt5, SQLite, SQLAlchemy, ReportLab.}
+}
+
+% ---------- RIGHT COLUMN ----------
+\switchcolumn
+
 \sectiontitle{Education}
 
-\heading{Engineering Degree, Software Engineering (IIR)}{--- EMSI, Casablanca}{2023 -- 2027 (expected)}{Information Systems \& Networks Engineering. Coursework: software engineering, databases \& data warehousing, business intelligence, network \& application security, Java EE/Spring Boot, IoT.}
-
-\heading{Specialized Technician, Full-Stack Development}{--- OFPPT ISTA NTIC2, Casablanca}{2020 -- 2022}{Full-stack web development training: front-end, back-end, database design and software engineering fundamentals.}
-
-% ---------- Projects ----------
-\sectiontitle{Key Projects}
-
-\heading{FidApp --- Production Digital Loyalty SaaS}{}{(4 deployed applications)}{}
-\resumeItems{
-  \item Full-stack SaaS loyalty platform serving Moroccan businesses (QR-code check-ins, no app download). Monorepo with client PWA, merchant dashboard, admin panel and REST API.
-  \item Anti-fraud rotating QR codes with TTL expiration, phone-number authentication. \textit{React, Node.js, Express, PostgreSQL, Prisma, JWT, PWA.}
+\edu{Engineering Degree, Software Engineering (IIR)}{EMSI, Casablanca}{2023 -- 2027 (expected)}{%
+  \resumeItems{
+    \item Information Systems \& Networks Engineering
+    \item Databases \& data warehousing, BI, application security
+  }
 }
 
-\heading{TimeTrack Pro --- HR Attendance \& Leave Management}{}{Final year project}{}
-\resumeItems{
-  \item B2B SaaS for employee check-in via GPS/Haversine geofencing and dynamic QR codes, with HR/employee analytics dashboards. \textit{Next.js, React, TypeScript, Firebase/Firestore.}
+\edu{Specialized Technician, Full-Stack Development}{OFPPT ISTA NTIC2, Casablanca}{2020 -- 2022}{%
+  \resumeItems{
+    \item Front-end, back-end, database design
+  }
 }
 
-\heading{Management Application --- Auto Parts Distributor}{}{Delivered \& in production}{}
-\resumeItems{
-  \item Desktop app: POS, stock, supplier and customer credit management, PDF invoicing. \textit{Python, PyQt5, SQLite, SQLAlchemy, ReportLab.}
-}
-
-\heading{Moqawil / SOAITRAV --- Desktop ERP for a Construction Company}{}{}{}
-\resumeItems{
-  \item Designed and developed a complete management application for a construction (BTP) company (quotes, invoices, delivery notes, clients, stock, dashboard), with professional A4 PDF generation (jsPDF), digital stamp/signature, and print-ready export.
-  \item Implemented automatic updates (electron-updater via GitHub Releases) and Windows packaging (electron-builder/NSIS), with a monorepo architecture (npm workspaces) separating API, web and desktop apps. \textit{React, TypeScript, Electron, Node.js/Express, Prisma, SQLite.}
-}
-
-\heading{Opportunities Scanner --- Freelance Client Discovery Platform}{}{Personal project}{}
-\resumeItems{
-  \item Automated platform for freelance IT client discovery: centralizes and normalizes listings from job boards and email alerts, and computes a match score against a technical profile.
-  \item Generates tailored outreach messages, with a UI for contact tracking (email, WhatsApp) and outreach history. Built with an event-driven architecture using a REST API, asynchronous workers, RabbitMQ, and PostgreSQL. \textit{Next.js, NestJS, TypeScript, PostgreSQL, Prisma, RabbitMQ.}
-}
-
-% ---------- Skills ----------
 \sectiontitle{Skills}
 
-{\bfseries\small\color{accent} Technical}\par\vspace{3pt}
-\skillLine{Core Stack}{React, Next.js, TypeScript, Node.js/Express, NestJS, Django/DRF, PostgreSQL, SQL Server}
-\skillLine{Data, BI \& ERP/CRM}{Power BI/DAX, n8n, ETL/ELT, Dynamics 365 Business Central (AL), Python (Pandas), RabbitMQ}
-\skillLine{Desktop \& Automation}{Electron, Python (PyQt5), SQLAlchemy, jsPDF, ReportLab}
-\skillLine{Also}{FastAPI, Laravel/PHP, .NET 8, Java, MySQL/MariaDB, MongoDB/Firestore, Oracle DB, Tailwind CSS, JWT}
-\skillLine{Tools \& Methods}{Git, Scrum, UML, Vercel}
+{\bfseries\small\color{accent} Technical}\\[3pt]
+\skillCat{Full-Stack Development}{React, Next.js, TypeScript, Node.js, NestJS, Django, PostgreSQL}
+\skillCat{Data Engineering \& BI}{SQL Server, Power BI (DAX), n8n, ETL/ELT, Python}
+\skillCat{ERP/CRM Systems}{Microsoft Dynamics 365 Business Central (AL)}
+\skillCat{Desktop Applications}{Electron, Python (PyQt5)}
 
 \vspace{2pt}
-{\bfseries\small\color{accent} Functional}\par\vspace{3pt}
-\skillLine{Business Analysis \& Documentation}{ERP/CRM schema reverse-engineering, requirements gathering, technical documentation}
-\skillLine{Agile Project Management}{Scrum Master certified, sprint planning, freelance client delivery}
-\skillLine{Client Relationship}{End-to-end freelance client management, needs analysis, post-delivery support}
-\skillLine{Training \& Mentoring}{Design and delivery of hands-on IT training programs, learner evaluation}
-\skillLine{Communication}{Arabic (Native), French (Fluent), English (Professional) --- FR/EN/Darija client communication}
+{\bfseries\small\color{accent} Functional}\\[3pt]
+\funcSkill{Systems \& Requirements}{End-to-end information systems, ERP/CRM reverse-engineering, technical documentation}
+\funcSkill{Delivery \& Collaboration}{Certified Scrum Master, freelance client delivery, agile project management}
 
-% ---------- Certifications ----------
 \sectiontitle{Certifications}
-\begin{itemize}[leftmargin=13pt, itemsep=1.5pt, topsep=1pt, parsep=0pt, label={\small\textcolor{amber}{\textbullet}}]
-  \item {\small Scrum Master --- CertiProf (2024)}
-  \item {\small Oracle Database --- LearnQuest}
-  \item {\small Python for Web Data --- University of Maryland}
-  \item {\small OOP in C++ --- EPFL}
-  \item {\small ALX Professional Foundation \quad\textbar\quad Soft Skills --- ALX Africa}
-\end{itemize}
+\cert{Certified Scrum Master}{CertiProf (2024)}
+\cert{Oracle Database}{LearnQuest}
+\cert{Python for Web Data}{University of Maryland}
+\cert{OOP in C++}{EPFL}
+\cert{ALX Professional Foundation}{ALX Africa}
+\cert{Soft Skills}{ALX Africa (2024)}
 
-% ---------- Keywords (ATS) ----------
-\vspace{10pt}
-{\footnotesize\color{subtext}
-\textbf{Keywords:} Software Engineer, Full-Stack Developer, React, Next.js, Node.js, NestJS, Django, TypeScript, PostgreSQL, SQL Server, Data Engineering, ETL, Power BI, ERP, CRM, Microsoft Dynamics 365, Business Intelligence, REST API, RabbitMQ, Electron, Freelance, Casablanca
-}
+\sectiontitle{Languages}
+\langitem{Arabic}{Native}{5}
+\langitem{French}{Fluent}{4}
+\langitem{English}{Professional}{4}
+
+\end{paracol}
 
 \end{document}
