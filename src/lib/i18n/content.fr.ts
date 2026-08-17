@@ -208,7 +208,7 @@ export const fr: Content = {
     githubLabel: "github.com/meziania",
     linkedin: "https://www.linkedin.com/in/abderrahmane-meziani-929b8a26b/",
     linkedinLabel: "linkedin.com/in/abderrahmane-meziani",
-    cv: "/CvAnglaisAbderrahmaneMeziani.pdf",
+    cv: "/CV.pdf",
   },
 
   ui: {
