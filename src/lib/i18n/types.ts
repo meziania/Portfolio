@@ -17,7 +17,7 @@ export type Project = {
   flagship?: boolean;
   browserUrl: string;
   previewClass: string;
-  mockup: "fidapp" | "erd" | "pos" | "video" | "geo" | "table-bi" | "table-gestipro";
+  mockup: "fidapp" | "erd" | "pos" | "video" | "geo" | "table-bi" | "table-gestipro" | "optigest" | "gpsi";
   status: ProjectStatus;
   ptag: string;
   title: string;

@@ -107,6 +107,26 @@ export default function ProjectMockup({ type }: { type: Project["mockup"] }) {
           <div className="mock-row"><span className="mock-cell" style={{ flex: "0 0 40%" }}></span><span className="mock-cell" style={{ flex: "0 0 30%" }}></span><span className="mock-cell dot" style={{ background: "var(--muted-2)" }}></span></div>
         </div>
       );
+    case "optigest":
+      return (
+        <div className="mock mock-pos">
+          <div className="mock-card">
+            <div className="mock-row"><span className="mock-pill">Ordonnance OD/OG</span><span className="mock-pill">12/08</span></div>
+            <div className="mock-row"><span className="mock-pill">Devis monture</span><span className="mock-pill">1 250 DH</span></div>
+            <div className="mock-row"><span className="mock-pill">Dossier CNOPS</span><span className="mock-pill" style={{ color: "var(--amber)" }}>en cours</span></div>
+            <div className="mock-row total"><span className="mock-pill" style={{ color: "var(--text)", fontWeight: 600 }}>Facture</span><span className="mock-pill" style={{ color: "var(--teal)", fontWeight: 600 }}>PDF</span></div>
+          </div>
+        </div>
+      );
+    case "gpsi":
+      return (
+        <div className="mock mock-table">
+          <div className="mock-tabs"><span className="mock-tab active">Tickets</span><span className="mock-tab">Parc</span></div>
+          <div className="mock-row"><span className="mock-pill">T-104 · Imprimante</span><span className="mock-pill" style={{ color: "var(--teal)" }}>SLA OK</span></div>
+          <div className="mock-row" style={{ marginTop: 8 }}><span className="mock-pill">T-107 · Accès VPN</span><span className="mock-pill" style={{ color: "var(--amber)" }}>en cours</span></div>
+          <div className="mock-row" style={{ marginTop: 8 }}><span className="mock-cell" style={{ flex: "0 0 55%" }}></span><span className="mock-cell dot" style={{ background: "var(--teal)" }}></span></div>
+        </div>
+      );
     default:
       return null;
   }

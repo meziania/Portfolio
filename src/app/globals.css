@@ -255,6 +255,8 @@ img{max-width:100%;display:block;}
 .preview-05{background:linear-gradient(135deg,#2a1f10,#101E31);}
 .preview-06{background:linear-gradient(135deg,#0f2a2a,#101E31);}
 .preview-07{background:linear-gradient(135deg,#1a1f2a,#101E31);}
+.preview-08{background:linear-gradient(135deg,#1a2430,#0d1826);}
+.preview-09{background:linear-gradient(135deg,#0f2a28,#101E31);}
 
 .status-badge{
   position:absolute;bottom:14px;left:16px;z-index:1;display:flex;align-items:center;gap:8px;
